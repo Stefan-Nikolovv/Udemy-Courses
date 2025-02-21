@@ -33,5 +33,18 @@ padding: 30px;
         , url('../img/hero.jpg');
     background-size: cover;
     background-position: top;
+    position: relative;
     clip-path: polygon(0 0, 100% 0, 100% 75.5%, 0 100%);
+    /* Starting from x left from top of the img and got y which is donw side of x */
+    /* clip-path: polygon(x y, x y, x y, x y); */
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
 }
