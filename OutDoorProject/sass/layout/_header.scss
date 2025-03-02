@@ -9,6 +9,7 @@
     background-size: cover;
     background-position: top;
     position: relative;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75.5%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75.5%, 0 100%);
     /* Starting from x left from top of the img and got y which is donw side of x */
     /* clip-path: polygon(x y, x y, x y, x y); */
