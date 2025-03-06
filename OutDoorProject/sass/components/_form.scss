@@ -15,7 +15,7 @@
         border-bottom: 3px solid transparent;
         width: 90%;
         display: block;
-
+        transition: all .3s;
         &:focus {
             outline: none;
             box-shadow: 0 1rem 2rem rgba($color-dark, .1);
@@ -34,10 +34,6 @@
       
       
     }
-
-  
-
-   
 
     &__label {
         font-size: 1.2rem;
