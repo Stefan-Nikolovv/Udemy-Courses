@@ -22,15 +22,8 @@
 900 - 1200px Tablet landscape
 [1200 - 1800] is where pur normal styles apply - desktop aproach
 1800px + : Big desktops
-
 1em = 16px
 */
-
-// @mixin respond-phone {
-//    @media (max-width: 600px) {
-//       @content
-//    }
-// }
 
 
 @mixin respond($breakpoint) {
