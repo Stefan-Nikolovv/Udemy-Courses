@@ -666,6 +666,11 @@ body {
   font-size: 1.4rem;
   color: #f7f7f7;
 }
+@media (max-width: 52.25em) {
+  .footer {
+    padding: 8rem 0;
+  }
+}
 .footer__logo-box {
   text-align: center;
   margin-bottom: 8rem;
@@ -678,6 +683,12 @@ body {
   border-top: 1px solid #000;
   padding-top: 2rem;
   display: inline-block;
+}
+@media (max-width: 52.25em) {
+  .footer__navigation {
+    width: 100%;
+    text-align: center;
+  }
 }
 .footer__list {
   list-style: none;
@@ -707,6 +718,12 @@ body {
   width: 80%;
   float: right;
 }
+@media (max-width: 52.25em) {
+  .footer__copyright {
+    width: 100%;
+    float: none;
+  }
+}
 
 .row {
   max-width: 114rem;
@@ -715,6 +732,7 @@ body {
 @media (max-width: 52.25em) {
   .row {
     max-width: 50rem;
+    padding: 0 3rem;
   }
 }
 .row:not(:last-child) {
