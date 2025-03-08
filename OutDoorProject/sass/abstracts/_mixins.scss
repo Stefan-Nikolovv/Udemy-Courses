@@ -12,3 +12,28 @@
    left: 50%;
    transform: translate(-50%, -50%);
 }
+
+
+// MEDIA QUERY MANAGER
+
+/*
+0 - 600px: phone resolution
+600 - 900px Tablet portrait
+900 - 1200px Tablet landscape
+[1200 - 1800] is where pur normal styles apply - desktop aproach
+1800px + : Big desktops
+*/
+
+@mixin respond-phone {
+   @media (max-width: 600px) {
+      @content
+   }
+}
+
+@mixin respond($breakpoint) {
+   @if $breakpoint == phone {
+      @media (max-width: 600px) {
+         @content
+      };
+   }
+}
