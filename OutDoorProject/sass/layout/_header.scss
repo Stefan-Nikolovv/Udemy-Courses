@@ -1,5 +1,5 @@
 .header {
-    height: 95vh;
+    height: 85vh;
     background-image: linear-gradient(
         to right,
         rgba($color-primary-light, 0.8),
@@ -9,12 +9,18 @@
     background-size: cover;
     background-position: top;
     position: relative;
+    
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75.5%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75.5%, 0 100%);
     /* Starting from x left from top of the img and got y which is donw side of x */
     /* clip-path: polygon(x y, x y, x y, x y); */
-  
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    height: 95vh;
+  }
+
+  @media (min-resolution: 192dpi) and (min-width: 37.5em),
+         (-webkit-min-device-pixel-ratio: 1) and (min-width: 37.5em), 
+         (min-width: 125em) {
     background-image: linear-gradient(
       to right,
       rgba($color-secondary-light, 0.8),

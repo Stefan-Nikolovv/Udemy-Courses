@@ -11,6 +11,14 @@
     visibility: hidden;
     transition: all .3s;
 
+
+    // Read more in CANIUSE.COM
+    @supports (-webkit-backdrop-filter: blur(10px)) or (background-filter: blur(10xp)) {
+        -webkit-backdrop-filter: blur(10px);
+        background-filter: blur(10xp);
+        background-color: rgba($color-dark, .3);
+    }
+
     &:target {
         opacity: 1;
         visibility: visible

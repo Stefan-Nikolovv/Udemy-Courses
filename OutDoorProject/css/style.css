@@ -641,6 +641,13 @@ body {
   visibility: hidden;
   transition: all 0.3s;
 }
+@supports (-webkit-backdrop-filter: blur(10px)) or (background-filter: blur(10xp)) {
+  .popup {
+    -webkit-backdrop-filter: blur(10px);
+    background-filter: blur(10xp);
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
 .popup:target {
   opacity: 1;
   visibility: visible;
@@ -734,12 +741,19 @@ body {
   width: 15rem;
   height: 15rem;
   float: left;
-  -webkit-shape-outside: circle(50% at 50% 50%);
-  shape-outside: circle(50% at 50% 50%);
-  -webkit-clip-path: circle(50% at 50% 50%);
-  clip-path: circle(50% at 50% 50%);
   transform: translateX(-3rem) skewX(12deg);
   position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+  .story__shape {
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    border-radius: none;
+  }
 }
 @media (max-width: 37.5em) {
   .story__shape {
@@ -912,17 +926,22 @@ body {
 }
 
 .header {
-  height: 95vh;
+  height: 85vh;
   background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero-small.jpg");
   background-size: cover;
   background-position: top;
   position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75.5%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75.5%, 0 100%);
-  /* Starting from x left from top of the img and got y which is donw side of x */
-  /* clip-path: polygon(x y, x y, x y, x y); */
 }
-@media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+  .header {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75.5%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75.5%, 0 100%);
+    /* Starting from x left from top of the img and got y which is donw side of x */
+    /* clip-path: polygon(x y, x y, x y, x y); */
+    height: 95vh;
+  }
+}
+@media (min-resolution: 192dpi) and (min-width: 37.5em), (-webkit-min-device-pixel-ratio: 1) and (min-width: 37.5em), (min-width: 125em) {
   .header {
     background-image: linear-gradient(to right, rgba(255, 185, 0, 0.8), rgba(255, 112, 48, 0.8)), url("../img/hero.jpg");
   }
