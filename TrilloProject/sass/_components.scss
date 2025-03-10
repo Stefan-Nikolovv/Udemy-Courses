@@ -25,18 +25,22 @@
     border-radius: 10rem;
     width: 90%;
     transition: all .3s;
-
+    margin-right: -3.25rem;
     &:focus {
         outline: none;
         width: 100%;
         background-color: var(--color-grey-light-3);
+     }
+
+     &::-webkit-input-placeholder {
+        font-weight: 100;
+        color: var(--color-grey-light-4);
      }
 }
 
     &__button {
         border: none;
         background-color: var(--color-grey-light-2);
-        margin-right: -3.25rem;
 
         &:focus {
             outline: none;

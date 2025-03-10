@@ -78,16 +78,20 @@ body {
   border-radius: 10rem;
   width: 90%;
   transition: all 0.3s;
+  margin-right: -3.25rem;
 }
 .search__input:focus {
   outline: none;
   width: 100%;
   background-color: var(--color-grey-light-3);
 }
+.search__input::-webkit-input-placeholder {
+  font-weight: 100;
+  color: var(--color-grey-light-4);
+}
 .search__button {
   border: none;
   background-color: var(--color-grey-light-2);
-  margin-right: -3.25rem;
 }
 .search__button:focus {
   outline: none;
@@ -123,6 +127,7 @@ body {
 }
 
 .header {
+  font-size: 1.4rem;
   height: 7rem;
   background-color: #fff;
   border-bottom: var(--color-grey-light-2);
