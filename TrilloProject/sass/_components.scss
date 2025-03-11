@@ -122,13 +122,24 @@
     font-size: 1.4rem;
     list-style: none;
     margin-top: 3.5rem;
-
+    @media only screen and (max-width: $bp-medium) {
+        display: flex;
+        margin: 0;
+        font-size: 2rem;
+    }
 
     &__item {
         position: relative;
 
         &:not(:last-child) {
             margin-bottom: .5rem;
+            @media only screen and (max-width: $bp-large) {
+            margin-bottom: 0;
+            }
+        }
+        @media only screen and (max-width: $bp-medium) {
+            flex: 1;
+            margin: 0;
         }
     }
 
@@ -168,6 +179,11 @@
 
         display: flex;
         align-items: center;
+
+        @media only screen and (max-width: $bp-medium) {
+            justify-content: center;
+            padding: 2rem;
+        }
     }
 
 
@@ -186,6 +202,9 @@
     color: var(--color-grey-light-4);
     text-align: center;
     padding: 2.5rem;
+    @media only screen and (max-width: $bp-medium) {
+        display: none;
+    }
 }
 
 ///////////////////////////////
@@ -359,9 +378,15 @@
     font-size: 1.3rem;
     color: var(--color-grey-dark-3);
 
+    display: flex;
+    align-items: center;
  
     &__count {
         margin-right: auto;
+    }
+
+    &__friends {
+        display: flex;
     }
 
     &__photo {
@@ -388,7 +413,10 @@
     display: flex;
     flex-direction: column;
     position: relative;
-
+    @media only screen and (max-width: $bp-large) {
+        padding: 2rem;
+        margin-bottom: 2.5rem;
+    }
     &__text {
         margin-bottom: 2rem;
         z-index: 10;
@@ -443,7 +471,9 @@
 .cta {
     padding: 3.5rem 0;
     text-align: center;
-
+    @media only screen and (max-width: $bp-large) {
+        padding: 2.5rem 0;
+        }
     &__book_now {
         font-size: 1.5rem;
         font-weight: 300;
