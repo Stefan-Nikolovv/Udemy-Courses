@@ -277,8 +277,15 @@ body {
   cursor: pointer;
   transition: all 0.2s;
 }
+.btn-inline span {
+  margin-left: 3px;
+  transition: margin-left 0.2s;
+}
 .btn-inline:hover {
   color: var(--color-grey-dark-1);
+}
+.btn-inline:hover span {
+  margin-left: 7px;
 }
 .btn-inline:focus {
   outline: none;
@@ -398,6 +405,9 @@ body {
 
 .user-reviews {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .review {
@@ -408,7 +418,6 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
 }
 .review__text {
   margin-bottom: 2rem;
