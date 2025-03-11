@@ -151,6 +151,18 @@ body {
   margin-right: 1rem;
 }
 
+.side-nav__icon {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.legal {
+  font-size: 1.2rem;
+  color: var(--color-grey-light-4);
+  text-align: center;
+  padding: 2.5rem;
+}
+
 .container {
   max-width: 120rem;
   margin: 8rem auto;
