@@ -233,7 +233,7 @@
         align-items: center;
     }
 
-    &__icon-location{
+    &__icon-location {
         margin-right: .5rem;
     }
 
@@ -303,7 +303,7 @@
 //////////////////////////////////
 /// Paragraph
 
-.paragraph:not(:last-of-type){
+.paragraph:not(:last-of-type) {
     margin-bottom: 2rem;
 }
 
@@ -311,9 +311,9 @@
 
 //////////////////////////////////
 /// List
-.list{
+.list {
     list-style: none;
-    margin:3rem 0; 
+    margin: 3rem 0;
     padding: 3rem 0;
     border-top: var(--line);
     border-bottom: var(--line);
@@ -344,7 +344,32 @@
     }
 }
 
-
-
 //////////////////////////////////
 /// Recommended
+.recommend {
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3);
+
+    display: flex;
+    align-items: center;
+    
+    &__count {
+        margin-right: auto;
+    }
+
+    &__friends {
+        
+    }
+
+    &__photo {
+        box-sizing: content-box;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: 3px solid #fff;
+
+        &:not(:last-child){
+            margin-right: -1.5rem;
+        }
+    }
+}
