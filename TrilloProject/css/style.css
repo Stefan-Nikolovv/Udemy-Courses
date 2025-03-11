@@ -27,6 +27,7 @@ Grey dark 3: #999
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
   --shadow-dark: 0 2rem 6rem rgba($color: #000000, $alpha: .3);
+  --line: 1px solid var(--color-grey-light-2);
 }
 
 * {
@@ -329,6 +330,24 @@ body {
 .hotel-view {
   flex: 1;
   height: 80rem;
+}
+
+.detail {
+  display: flex;
+  padding: 4.5rem;
+  background-color: var(--color-grey-light-1);
+  border-bottom: var(--line);
+}
+
+.description {
+  background-color: orange;
+  flex: 0 0 60%;
+  margin-right: 4.5rem;
+}
+
+.user-reviews {
+  background-color: aqua;
+  flex: 1;
 }
 
 /*# sourceMappingURL=style.css.map */
