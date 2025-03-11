@@ -40,11 +40,13 @@
     display: flex;
     padding: 4.5rem;
     background-color: var(--color-grey-light-1);
-    border-bottom: var(--line)
+    border-bottom: var(--line);
 }
 
 .description {
-    background-color: orange;
+    background-color: #fff;
+    box-shadow: --shadow-light;
+    padding: 3rem;
     flex: 0 0 60%;
     margin-right: 4.5rem;
 }
