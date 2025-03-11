@@ -223,11 +223,25 @@ body {
     padding: 2rem;
   }
 }
+@media only screen and (max-width: 37.5em) {
+  .side-nav__link:link, .side-nav__link:visited {
+    flex-direction: column;
+    padding: 1.5rem 0.5rem;
+  }
+}
 .side-nav__icon {
   width: 1.75rem;
   height: 1.75rem;
   margin-right: 2rem;
   fill: currentColor;
+}
+@media only screen and (max-width: 37.5em) {
+  .side-nav__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0;
+    margin-bottom: 0.7rem;
+  }
 }
 
 .legal {
@@ -263,6 +277,12 @@ body {
   letter-spacing: 1px;
   padding: 1.5rem 3rem;
 }
+@media only screen and (max-width: 37.5em) {
+  .overview__heading {
+    font-size: 1.5rem;
+    padding: 1.25rem 2rem;
+  }
+}
 .overview__stars {
   margin-right: auto;
   display: flex;
@@ -291,13 +311,28 @@ body {
   justify-content: center;
   flex-direction: column;
 }
+@media only screen and (max-width: 37.5em) {
+  .overview__rating {
+    padding: 0 1.5rem;
+  }
+}
 .overview__rating-average {
   font-size: 2.25rem;
   font-weight: 300;
 }
+@media only screen and (max-width: 37.5em) {
+  .overview__rating-average {
+    font-size: 1.8rem;
+  }
+}
 .overview__rating-count {
   font-size: 0.8rem;
   text-transform: uppercase;
+}
+@media only screen and (max-width: 37.5em) {
+  .overview__rating-count {
+    font-size: 0.5rem;
+  }
 }
 
 .btn-inline {
@@ -566,6 +601,11 @@ body {
     padding: 3rem;
   }
 }
+@media only screen and (max-width: 37.5em) {
+  .detail {
+    flex-direction: column;
+  }
+}
 
 .description {
   background-color: #fff;
@@ -578,6 +618,12 @@ body {
   .description {
     padding: 3rem;
     margin-right: 2.5rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .description {
+    margin-right: 0;
+    margin-bottom: 3rem;
   }
 }
 

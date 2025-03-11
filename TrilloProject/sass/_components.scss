@@ -122,6 +122,7 @@
     font-size: 1.4rem;
     list-style: none;
     margin-top: 3.5rem;
+
     @media only screen and (max-width: $bp-medium) {
         display: flex;
         margin: 0;
@@ -133,10 +134,12 @@
 
         &:not(:last-child) {
             margin-bottom: .5rem;
+
             @media only screen and (max-width: $bp-large) {
-            margin-bottom: 0;
+                margin-bottom: 0;
             }
         }
+
         @media only screen and (max-width: $bp-medium) {
             flex: 1;
             margin: 0;
@@ -184,6 +187,12 @@
             justify-content: center;
             padding: 2rem;
         }
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            padding: 1.5rem .5rem;
+        }
+
     }
 
 
@@ -192,6 +201,13 @@
         height: 1.75rem;
         margin-right: 2rem;
         fill: currentColor;
+
+        @media only screen and (max-width: $bp-small) {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 0;
+            margin-bottom: .7rem;
+        }
     }
 }
 
@@ -202,6 +218,7 @@
     color: var(--color-grey-light-4);
     text-align: center;
     padding: 2.5rem;
+
     @media only screen and (max-width: $bp-medium) {
         display: none;
     }
@@ -232,6 +249,10 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.5rem;
+            padding: 1.25rem 2rem;
+        }
     }
 
     &__stars {
@@ -266,16 +287,27 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
+
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 1.5rem;
+        }
     }
 
     &__rating-average {
         font-size: 2.25rem;
         font-weight: 300;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+        }
     }
 
     &__rating-count {
         font-size: .8rem;
         text-transform: uppercase;
+        @media only screen and (max-width: $bp-small) {
+            font-size: .5rem;
+        }
     }
 }
 
@@ -380,7 +412,7 @@
 
     display: flex;
     align-items: center;
- 
+
     &__count {
         margin-right: auto;
     }
@@ -396,7 +428,7 @@
         border-radius: 50%;
         border: 3px solid #fff;
 
-        &:not(:last-child){
+        &:not(:last-child) {
             margin-right: -2rem;
         }
     }
@@ -413,10 +445,12 @@
     display: flex;
     flex-direction: column;
     position: relative;
+
     @media only screen and (max-width: $bp-large) {
         padding: 2rem;
         margin-bottom: 2.5rem;
     }
+
     &__text {
         margin-bottom: 2rem;
         z-index: 10;
@@ -438,16 +472,19 @@
     &__user-box {
         margin-right: auto;
     }
+
     &__user-name {
         font-size: 1.1rem;
         font-weight: 600;
         text-transform: uppercase;
         margin-bottom: .4rem;
     }
+
     &__user-date {
         font-size: 1rem;
         color: var(--color-grey-dark-3);
     }
+
     &__rating {
         color: var(--color-primary);
         font-size: 2.2rem;
@@ -471,9 +508,11 @@
 .cta {
     padding: 3.5rem 0;
     text-align: center;
+
     @media only screen and (max-width: $bp-large) {
         padding: 2.5rem 0;
-        }
+    }
+
     &__book_now {
         font-size: 1.5rem;
         font-weight: 300;
@@ -481,6 +520,7 @@
         margin-bottom: 2.5rem;
     }
 }
+
 ///////////////////////////
 /// call to action
 .btn {
@@ -490,13 +530,13 @@
     border-radius: 100px;
     border: none;
     background-image: linear-gradient(to right,
-    var(--color-primary-light),
-    var(--color-primary-dark));
+            var(--color-primary-light),
+            var(--color-primary-dark));
     color: #fff;
     position: relative;
     overflow: hidden;
 
-    & > * {
+    &>* {
         display: inline-block;
         height: 100%;
         width: 100%;
@@ -513,20 +553,21 @@
         padding: 2rem 0;
         left: 0;
         top: -100%;
-        
+
     }
 
     &:hover {
         background-image: linear-gradient(to left,
-    var(--color-primary-light),
-    var(--color-primary-dark));
+                var(--color-primary-light),
+                var(--color-primary-dark));
     }
 
-    &:hover  &__visible{
+    &:hover &__visible {
         transform: translateY(100%);
     }
-    &:hover  &__invisible {
-        top:0;
+
+    &:hover &__invisible {
+        top: 0;
     }
 
     &:focus {
