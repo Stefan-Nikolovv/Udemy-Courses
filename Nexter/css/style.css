@@ -330,4 +330,13 @@ body {
   transform: translate(-3px);
 }
 
+.copyright {
+  font-size: 1.4rem;
+  color: #c69963;
+  margin-top: 6rem;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
 /*# sourceMappingURL=style.css.map */
