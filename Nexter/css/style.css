@@ -61,6 +61,7 @@ body {
 
 .footer {
   background-color: #101d2c;
+  grid-column: full-start/full-end;
 }
 
 /*# sourceMappingURL=style.css.map */
