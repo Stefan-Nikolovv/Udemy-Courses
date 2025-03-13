@@ -40,6 +40,7 @@ body {
 
 .features {
   background-color: #aaa;
+  grid-column: center-start/center-end;
 }
 
 .story__pictures {
