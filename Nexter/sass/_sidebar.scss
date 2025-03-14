@@ -24,6 +24,7 @@
     height: 2px;
     width: 4.5rem;
     margin-top: 4rem;
+
     &::before,
     &::after {
         background-color: #fff;
@@ -42,15 +43,16 @@
     }
 
     @media only screen and (max-width: $bp-large) {
-       margin-top: 0;
-       margin-right: 3rem;
-       &::before {
-        transform: translateY(-1.2rem);
-    }
+        margin-top: 0;
+        margin-right: 3rem;
 
-    &::after {
-        transform: translateY(1rem);
-    }
+        &::before {
+            transform: translateY(-1.2rem);
+        }
+
+        &::after {
+            transform: translateY(1rem);
+        }
     }
 
 }
