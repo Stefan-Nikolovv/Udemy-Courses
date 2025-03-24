@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navigation from "./components/Navigation";
 import Main from "./components/Main";
 import SearchComponent from "./components/Search";
@@ -7,6 +7,8 @@ import MovieList from "./components/MovieList";
 import WatchList from "./components/WatchList";
 import WatchedSummary from "./components/WatchedSummary";
 import Box from "./components/Box";
+import Loader from "./components/Loader";
+import ErrorMessage from "./components/ErrorMessage";
 const tempMovieData = [
   {
     imdbID: "tt1375666",
@@ -54,21 +56,63 @@ const tempWatchedData = [
   },
 ];
 
+const KEY = "e4812472";
 export default function App() {
   const average = (arr) =>
     arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
-  const [movies, setMovies] = useState(tempMovieData);
+  const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState(tempWatchedData);
+  const [query, setQuery] = useState("");
+  const [isLoading, setisLoading] = useState(false);
+  const [error, setError] = useState("");
+  const tempQuery = "interstellar";
+
+  useEffect(
+    function () {
+      async function fetchMovies() {
+        try {
+          setisLoading(true);
+          setError("");
+          const res = await fetch(
+            `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
+          );
+          if (!res.ok) {
+            throw new Error("Someting went wrong with movies");
+          }
+          const data = await res.json();
+          if (data.Response === "False") {
+            throw new Error("Movie not found!");
+          }
+          console.log(data);
+          setMovies(data.Search);
+        } catch (error) {
+          console.error(error.message);
+          setError(error.message);
+        } finally {
+          setisLoading(false);
+        }
+      }
+      if (!query.length) {
+        setMovies([]);
+        setError("");
+        return;
+      }
+      fetchMovies();
+    },
+    [query]
+  );
 
   return (
     <>
       <Navigation>
-        <SearchComponent />
-        <NumResults movies={movies} />
+        <SearchComponent query={query} setQuery={setQuery} />
+        {!isLoading && <NumResults movies={movies} />}
       </Navigation>
       <Main>
         <Box>
-          <MovieList movies={movies} />
+          {isLoading && <Loader />}
+          {!isLoading && !error && <MovieList movies={movies} />}
+          {error && <ErrorMessage message={error} />}
         </Box>
         <Box>
           <WatchedSummary average={average} watched={watched} />
