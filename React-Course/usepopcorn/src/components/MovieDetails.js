@@ -13,10 +13,11 @@ export default function MovieDetails({
   const [userRaiting, setUserRaiting] = useState("");
 
   const isWatched = watched.map((movies) => movies.imdbID).includes(selectedId);
-  console.log(watched);
+
   const watchedUserRaiting = watched.find(
     (movie) => movie.imdbID === selectedId
   )?.userRaiting;
+
   const {
     Title: title,
     Year: year,
@@ -59,6 +60,14 @@ export default function MovieDetails({
       getMovieDetails();
     },
     [selectedId]
+  );
+
+  useEffect(
+    function () {
+      if (!title) return;
+      document.title = `Movie | ${title}`;
+    },
+    [title]
   );
 
   return (
