@@ -7,17 +7,21 @@ export default function App() {
   const [curr1, setCurr1] = useState("EUR");
   const [curr2, setCurr2] = useState("USD");
   const [result, setResult] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(
     function () {
       async function currencyConvert() {
+        setIsLoading(true);
         const res = await fetch(
           `https://api.frankfurter.app/latest?amount=${value}&from=${curr1}&to=${curr2}`
         );
 
         const data = await res.json();
         setResult(data.rates[curr2]);
+        setIsLoading(false);
       }
+      if (curr1 === curr2) return setValue(value);
       currencyConvert();
     },
     [value, curr1, curr2]
@@ -26,8 +30,9 @@ export default function App() {
   return (
     <div>
       <input
+        min={1}
         value={value}
-        type="text"
+        type="number"
         onChange={(e) => setValue(Number(e.target.value))}
       />
       <select value={curr1} onChange={(e) => setCurr1(e.target.value)}>
@@ -42,9 +47,13 @@ export default function App() {
         <option value="CAD">CAD</option>
         <option value="INR">INR</option>
       </select>
-      <p>
-        {result} {curr2}
-      </p>
+      {!isLoading ? (
+        <p>
+          {result} {curr2}
+        </p>
+      ) : (
+        <p>"Loading...."</p>
+      )}
     </div>
   );
 }
