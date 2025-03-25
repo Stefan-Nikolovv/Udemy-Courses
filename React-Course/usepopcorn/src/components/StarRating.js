@@ -21,7 +21,7 @@ export default function StarRaiting({
   const [tempRaiting, setTempRating] = useState(0);
   function handleRating(rating) {
     setRating(rating);
-    onSetRating(rating);
+    setTempRating(rating);
   }
   const textStyle = {
     lineHeight: "1",

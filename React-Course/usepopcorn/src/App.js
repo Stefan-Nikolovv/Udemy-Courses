@@ -58,6 +58,7 @@ const tempWatchedData = [
 ];
 
 const KEY = "e4812472";
+
 export default function App() {
   const average = (arr) =>
     arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
@@ -129,6 +130,7 @@ export default function App() {
             <MovieDetails
               selectedId={selectedId}
               onCloseMovie={handleCloseMovie}
+              apiKey={KEY}
             />
           ) : (
             <>
