@@ -10,6 +10,8 @@ import Box from "./components/Box";
 import Loader from "./components/Loader";
 import ErrorMessage from "./components/ErrorMessage";
 import MovieDetails from "./components/MovieDetails";
+import { useMovies } from "./hooks/useMovies";
+import { useLocalStorageState } from "./hooks/useLocalStorageState";
 // const tempMovieData = [
 //   {
 //     imdbID: "tt1375666",
@@ -61,13 +63,13 @@ const KEY = "e4812472";
 
 export default function App() {
   const average = (arr) =>
-    arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
-  const [movies, setMovies] = useState([]);
-  const [watched, setWatched] = useState([]);
+    arr?.reduce((acc, cur, i, arr) => acc + cur / arr?.length, 0);
+
   const [query, setQuery] = useState("");
-  const [isLoading, setisLoading] = useState(false);
-  const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState(null);
+  const { movies, isLoading, error } = useMovies(query);
+
+  const [watched, setWatched] = useLocalStorageState([], "watched");
 
   function handleSelectedId(id) {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
@@ -86,50 +88,6 @@ export default function App() {
       watched.filter((currentMoive) => currentMoive.imdbID !== id)
     );
   }
-
-  useEffect(
-    function () {
-      const controller = new AbortController();
-
-      async function fetchMovies() {
-        try {
-          setisLoading(true);
-          setError("");
-          const res = await fetch(
-            `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
-            { signal: controller.signal }
-          );
-          if (!res.ok) {
-            throw new Error("Someting went wrong with movies");
-          }
-          const data = await res.json();
-          if (data.Response === "False") {
-            throw new Error("Movie not found!");
-          }
-          console.log(data);
-          setMovies(data.Search);
-        } catch (error) {
-          if (error.name !== "AbortError") {
-            console.log(error.message);
-            setError(error.message);
-          }
-        } finally {
-          setisLoading(false);
-        }
-      }
-      if (!query.length) {
-        setMovies([]);
-        setError("");
-        return;
-      }
-      handleCloseMovie();
-      fetchMovies();
-      return function () {
-        controller.abort();
-      };
-    },
-    [query]
-  );
 
   return (
     <>
