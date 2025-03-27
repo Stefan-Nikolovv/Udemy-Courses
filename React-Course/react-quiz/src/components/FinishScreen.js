@@ -1,4 +1,6 @@
-function FinishScreen({ points, maxPoints }) {
+import { type } from "@testing-library/user-event/dist/type";
+
+function FinishScreen({ points, maxPoints, highScore, dispatch }) {
   const percentage = (points / maxPoints) * 100;
 
   let emoji;
@@ -11,9 +13,15 @@ function FinishScreen({ points, maxPoints }) {
     <>
       <p className="result">
         You scored <span>{emoji}</span>
-        <strong>{points} </strong> out of {maxPoints}({Math.ceil(percentage)})
+        <strong>{points} </strong> out of {maxPoints}({Math.ceil(percentage)}%)
       </p>
-      <p className="hightscore">(Highscore: X points)</p>
+      <p className="hightscore">(Highscore: {highScore} points)</p>
+      <button
+        className="btn btn-ui"
+        onClick={() => dispatch({ type: "reset" })}
+      >
+        Restart Quiz
+      </button>
     </>
   );
 }
