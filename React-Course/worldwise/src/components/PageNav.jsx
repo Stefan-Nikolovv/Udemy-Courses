@@ -10,7 +10,7 @@ function PageNav() {
           <NavLink to="/pricing"> Pricing</NavLink>
         </li>
         <li>
-          <NavLink to="/products"> Products</NavLink>
+          <NavLink to="/product"> Products</NavLink>
         </li>
         <li>
           <NavLink to="/login"> Login</NavLink>
