@@ -2,8 +2,10 @@ import styles from "./CountryList.module.css";
 import CountryItem from "./CountryItem";
 import Message from "./Message";
 import Spinner from "./Spinner";
+import { useCities } from "../context/CitiesContext";
 
-function CountriyList({ cities, isLoading }) {
+function CountriyList() {
+  const { cities, isLoading } = useCities();
   if (isLoading) return <Spinner />;
 
   const countries = cities.reduce((x, y) => {
