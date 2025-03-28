@@ -40,7 +40,7 @@ function App() {
         <Route path="pricing" element={<Pricing />} />
         <Route path="login" element={<Login />} />
         <Route path="app" element={<AppLayout />}>
-          <Route index element={<Navigate to="cities" />}></Route>
+          <Route index replace element={<Navigate to="cities" />}></Route>
           <Route
             path="cities"
             element={
