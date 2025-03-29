@@ -57,7 +57,24 @@ function CitiesProvider({ children }) {
       setCities((cities) => [...cities, data]);
       // setCities(cities.concat(data));
     } catch {
-      alert("There was an error in fetch");
+      alert("There was an error in create");
+    } finally {
+      setIsloading(false);
+    }
+  }
+  async function deleteCity(id) {
+    try {
+      setIsloading(true);
+
+      const res = await fetch(`${BASE_URL}/cities/${id}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+
+      setCities((cities) => cities.filter((city) => city.id !== id));
+      // setCities(cities.concat(data));
+    } catch {
+      alert("Some error deleteing City!");
     } finally {
       setIsloading(false);
     }
@@ -71,6 +88,7 @@ function CitiesProvider({ children }) {
         currentCity,
         getCity,
         createCity,
+        deleteCity,
       }}
     >
       {children}

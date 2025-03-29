@@ -35,30 +35,6 @@
         "lng": 13.376933665713324
       },
       "id": "98443197"
-    },
-    {
-      "id": "ef59",
-      "cityName": "Pleven",
-      "country": "Bulgaria",
-      "emoji": "🇧🇬",
-      "date": "2025-03-29T16:34:36.543Z",
-      "notes": "nice town ",
-      "position": {
-        "lat": "43.37311218382002",
-        "lng": "24.587402343750004"
-      }
-    },
-    {
-      "id": "5dc4",
-      "cityName": "Belgrade",
-      "country": "Serbia",
-      "emoji": "🇷🇸",
-      "date": "2025-03-29T16:38:39.617Z",
-      "notes": "ooo peskavicaa",
-      "position": {
-        "lat": "44.84029065139799",
-        "lng": "20.390625000000004"
-      }
     }
   ]
 }
