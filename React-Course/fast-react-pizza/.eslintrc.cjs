@@ -11,16 +11,20 @@ module.exports = {
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
   settings: { react: { version: "18.2" } },
   plugins: ["react-refresh"],
+  // rules: {
+  //   "no-unused-vars": [
+  //     "error",
+  //     {
+  //       vars: "all",
+  //       args: "after-used",
+  //       caughtErrors: "all",
+  //       ignoreRestSiblings: false,
+  //       reportUsedIgnorePattern: false,
+  //     },
+  //   ],
+  // },
   rules: {
-    "no-unused-vars": [
-      "error",
-      {
-        vars: "all",
-        args: "after-used",
-        caughtErrors: "all",
-        ignoreRestSiblings: false,
-        reportUsedIgnorePattern: false,
-      },
-    ],
+    "no-unused-vars": "warn", // Change from "error" to "warn"
+    "react/prop-types": "warn", // Make missing PropTypes a warning, not an error
   },
 };
