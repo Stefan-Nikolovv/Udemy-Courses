@@ -6,7 +6,7 @@ import Cart from "./features/cart/Cart";
 import CreateOrder, {
   action as createOrderAction,
 } from "./features/order/CreateOrder";
-import Order, { order as orderLoader } from "./features/order/Order";
+import Order, { loader as orderLoader } from "./features/order/Order";
 import AppLayout from "./ui/AppLayout";
 import Error from "./ui/Error";
 
