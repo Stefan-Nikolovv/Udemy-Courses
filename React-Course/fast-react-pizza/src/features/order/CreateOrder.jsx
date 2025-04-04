@@ -46,17 +46,11 @@ function CreateOrder() {
     <div className="px-4 py-6">
       <h2 className="mb-8 text-xl font-semibold">Ready to order? Let`s go!</h2>
 
-      <Form method="POST" action="/order/new">
+      {/* <Form method="POST" action="/order/new"> */}
+      <Form method="POST">
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
           <label className="sm:basis-40">First Name</label>
-          <div className="grow">
-            <input
-              className="input w-full"
-              type="text"
-              name="customer"
-              required
-            />
-          </div>
+          <input className="input grow" type="text" name="customer" required />
         </div>
 
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
@@ -64,7 +58,7 @@ function CreateOrder() {
           <div className="grow">
             <input className="input w-full" type="tel" name="phone" required />
             {formErrors?.phone && (
-              <p className="mt-2 rounded-full bg-red-100 p-2 text-xs text-red-700">
+              <p className="mt-2 rounded-md bg-red-100 p-2 text-xs text-red-700">
                 {formErrors.phone}
               </p>
             )}
@@ -89,8 +83,8 @@ function CreateOrder() {
             type="checkbox"
             name="priority"
             id="priority"
-            value={withPriority}
-            onChange={(e) => setWithPriority(e.target.checked)}
+            // value={withPriority}
+            // onChange={(e) => setWithPriority(e.target.checked)}
           />
           <label htmlFor="priority" className="font-medium">
             Want to yo give your order priority?
@@ -100,7 +94,7 @@ function CreateOrder() {
         <div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
           <Button disabled={isSubmitting} type="primary">
-            {isSubmitting ? "Placing order ...." : "Order now"}
+            {isSubmitting ? "Placing order...." : "Order now"}
           </Button>
         </div>
       </Form>
