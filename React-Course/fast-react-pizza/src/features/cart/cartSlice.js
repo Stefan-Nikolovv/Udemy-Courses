@@ -10,11 +10,6 @@ const cartSlice = createSlice({
   reducers: {
     addItem(state, action) {
       //payload = new Item
-
-      const index = state.cart.find(
-        (pizza) => pizza.pizzaId === action.payload["pizzaId"],
-      );
-      console.log(index);
       state.cart.push(action.payload);
     },
     deleteItem(state, action) {

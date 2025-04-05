@@ -42,7 +42,7 @@ function CreateOrder() {
   const [withPriority, setWithPriority] = useState(false);
   const dispatch = useDispatch();
   const {
-    userName,
+    username,
     status: addressStatus,
     position,
     address,
@@ -74,7 +74,7 @@ function CreateOrder() {
           <label className="sm:basis-40">First Name</label>
           <div className="grow">
             <input
-              defaultValue={userName}
+              defaultValue={username}
               className="input grow"
               type="text"
               name="customer"
@@ -103,6 +103,7 @@ function CreateOrder() {
               type="text"
               name="address"
               required
+              defaultValue={address}
               disabled={isLoadingAddress}
             />
             {addressStatus === "error" && (
@@ -114,7 +115,6 @@ function CreateOrder() {
           {!position.latitude && !position.longitude && (
             <span className="absolute right-[4px] top-[3px] z-50 md:right-[4px] md:top-[3px]">
               <Button
-                defaultValue={address}
                 type="small"
                 disabled={isLoadingAddress}
                 onClick={(e) => {
