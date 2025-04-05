@@ -1,13 +1,14 @@
 /* eslint-disable no-unused-vars */
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-
+import { HiOutlineHome } from "react-icons/hi";
 const NavList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 `;
 
-const Link = styled.a`
+const StyledNavLink = styled(NavLink)`
   &:link,
   &:visited {
     display: flex;
@@ -45,3 +46,19 @@ const Link = styled.a`
     color: var(--color-brand-600);
   }
 `;
+
+function MainNav() {
+  return (
+    <div>
+      <NavList>
+        <li>
+          <StyledNavLink to="/dashboard">
+            <HiOutlineHome /> <span>Home</span>
+          </StyledNavLink>
+        </li>
+      </NavList>
+    </div>
+  );
+}
+
+export default MainNav;
