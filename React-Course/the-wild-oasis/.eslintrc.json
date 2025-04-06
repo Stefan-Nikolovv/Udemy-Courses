@@ -1,3 +1,7 @@
 {
-  "extends": "react-app"
+  "extends": "react-app",
+  "rules": {
+    "no-unused-vars": "off", // deaktiviert Warnung bei ungenutzten Variablen
+    "react/prop-types": "off" // deaktiviert Pflicht für PropTypes
+  }
 }
