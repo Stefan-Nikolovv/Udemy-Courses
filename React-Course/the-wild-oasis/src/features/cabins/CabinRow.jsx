@@ -74,7 +74,7 @@ function CabinRow({ cabin }) {
           <span>&mdash;</span>
         )}
         <div>
-          <button onClick={() => handleDuplicate()}>
+          <button disabled={isCreating} onClick={() => handleDuplicate()}>
             <HiSquare2Stack />
           </button>
           <button
