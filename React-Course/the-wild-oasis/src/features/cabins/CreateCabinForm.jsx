@@ -10,48 +10,35 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createEditCabin } from "../../services/apiCabins";
 import toast from "react-hot-toast";
 import FormRow from "../../ui/FormRow";
+import { useCreateCabin } from "./useCreateCabin";
+import { useEditCabin } from "./useEditCabin";
 
 function CreateCabinForm({ cabinToEdit = {} }) {
   const { id: editId, ...edtValues } = cabinToEdit;
   const isEditSession = Boolean(editId);
-  const queryClient = useQueryClient();
-  const { register, handleSubmit, getValues, formState } = useForm({
+  const { creatinCabin, isCreating } = useCreateCabin();
+  const { editingCabin, isEditing } = useEditCabin();
+  const { register, handleSubmit, getValues, formState, reset } = useForm({
     defaultValues: isEditSession ? edtValues : {},
   });
 
   const { errors } = formState;
-  const {
-    mutate: creatinCabin,
-    isLoading: isCreating,
-    reset,
-  } = useMutation({
-    mutationFn: (newCabin) => createEditCabin(newCabin),
-    onSuccess: () => {
-      toast.success("New cabin successfully created");
-      queryClient.invalidateQueries({ queryKey: ["cabins"] });
-      reset();
-    },
-    onError: () => {
-      toast.error("Some went wrong with creating");
-    },
-  });
 
-  const { mutate: editingCabin, isLoading: isEditing } = useMutation({
-    mutationFn: ({ newCabinData, id }) => createEditCabin(newCabinData, id),
-    onSuccess: () => {
-      toast.success("New cabin successfully created");
-      queryClient.invalidateQueries({ queryKey: ["cabins"] });
-      reset();
-    },
-    onError: () => {
-      toast.error("Some went wrong with editing");
-    },
-  });
   function onSubmit(data) {
     const image = typeof data.image === "string" ? data.image : data.image[0];
     if (isEditSession)
-      editingCabin({ newCabinData: { ...data, image }, id: editId });
-    creatinCabin({ ...data, image });
+      editingCabin(
+        { newCabinData: { ...data, image: image }, id: editId },
+        {
+          onSuccess: (data) => reset(),
+        }
+      );
+    creatinCabin(
+      { ...data, image: image },
+      {
+        onSuccess: (data) => reset(),
+      }
+    );
   }
 
   const isWorking = isCreating || isEditing;
