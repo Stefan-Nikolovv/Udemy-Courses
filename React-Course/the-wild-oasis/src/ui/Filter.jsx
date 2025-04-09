@@ -51,6 +51,7 @@ function Filter({ filterField, options }) {
           key={btnOpt.value}
           onClick={() => handleClick(btnOpt.value)}
           active={btnOpt.value === currentFilter}
+          disabled={btnOpt.value === currentFilter}
         >
           {btnOpt.label}
         </FilterButton>
