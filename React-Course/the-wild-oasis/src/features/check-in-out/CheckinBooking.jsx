@@ -15,6 +15,12 @@ import { useEffect, useState } from "react";
 import { formatCurrency } from "../../utils/helpers";
 import { useCheckin } from "./useCheckin";
 import { useSettings } from "../settings/useSettings";
+import Modal from "../../ui/Modal";
+import { HiTrash } from "react-icons/hi2";
+import Menus from "../../ui/Menus";
+import ConfirmDelete from "../../ui/ConfirmDelete";
+import { deleteBooking } from "../../services/apiBookings";
+import { useDeleteBookings } from "../bookings/useDeleteBooking";
 
 const Box = styled.div`
   /* Box */
@@ -30,6 +36,7 @@ function CheckinBooking() {
   const { checkin, isCheckingIn } = useCheckin();
   const { booking, isLoading } = useBookingById();
   const { settings, isLoading: isLoadingSettings } = useSettings();
+  const { isDeleting, deleteBooking } = useDeleteBookings();
   useEffect(() => setConfirmPaid(booking?.isPaid ?? false), [booking]);
   const moveBack = useMoveBack();
   if (isLoading || isLoadingSettings) return <Spinner />;
@@ -63,7 +70,7 @@ function CheckinBooking() {
   }
 
   return (
-    <>
+    <Modal>
       <Row type="horizontal">
         <Heading as="h1">Check in booking #{bookingId}</Heading>
         <ButtonText onClick={moveBack}>&larr; Back</ButtonText>
@@ -104,15 +111,33 @@ function CheckinBooking() {
               )})`}
         </CheckBox>
       </Box>
-      <ButtonGroup>
-        <Button onClick={handleCheckin} disabled={!confirmPaid || isCheckingIn}>
-          Check in booking #{bookingId}
-        </Button>
-        <Button variation="secondary" onClick={moveBack}>
-          Back
-        </Button>
-      </ButtonGroup>
-    </>
+      <Menus>
+        <ButtonGroup>
+          <Button
+            onClick={handleCheckin}
+            disabled={!confirmPaid || isCheckingIn}
+          >
+            Check in booking #{bookingId}
+          </Button>
+          <Button variation="secondary" onClick={moveBack}>
+            Back
+          </Button>
+
+          <Modal.Open opens="delete">
+            <Button variation="danger" icon={<HiTrash />}>
+              Delete booking
+            </Button>
+          </Modal.Open>
+        </ButtonGroup>
+      </Menus>
+      <Modal.Window name="delete">
+        <ConfirmDelete
+          resourceName="bookings"
+          disabled={isDeleting}
+          onConfirm={() => deleteBooking(bookingId)}
+        />
+      </Modal.Window>
+    </Modal>
   );
 }
 
