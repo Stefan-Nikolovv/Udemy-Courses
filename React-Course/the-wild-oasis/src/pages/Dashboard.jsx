@@ -6,8 +6,8 @@ import DashboardFilter from "../features/dashboard/DashboardFilter";
 import { useRecentBookings } from "../features/dashboard/useRecentBookings";
 import { useRecentStays } from "../features/dashboard/useRecentStays";
 function Dashboard() {
-  const { isLoading, bookings } = useRecentBookings();
-  const { stays, confirmedStays, isLoading: isStaysLoading } = useRecentStays();
+  const { isLoading } = useRecentBookings();
+  const { isLoading: isStaysLoading } = useRecentStays();
   if (isLoading || isStaysLoading) return <Spinner />;
   return (
     <>

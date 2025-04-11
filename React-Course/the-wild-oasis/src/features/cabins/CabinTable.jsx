@@ -6,7 +6,7 @@ import Menus from "../../ui/Menus";
 import { useSearchParams } from "react-router-dom";
 
 function CabinTable() {
-  const { isLoading, cabins, error } = useCabins();
+  const { isLoading, cabins } = useCabins();
   const [searchParams] = useSearchParams();
 
   if (isLoading) return <Spinner />;

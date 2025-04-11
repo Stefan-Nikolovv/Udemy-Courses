@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Input from "./Input";
 
 const Label = styled.label`
   font-weight: 500;

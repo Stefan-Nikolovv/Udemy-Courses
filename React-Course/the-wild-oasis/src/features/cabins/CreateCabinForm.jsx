@@ -1,14 +1,10 @@
-import styled from "styled-components";
-
 import Input from "../../ui/Input";
 import Form from "../../ui/Form";
 import Button from "../../ui/Button";
 import FileInput from "../../ui/FileInput";
 import Textarea from "../../ui/Textarea";
 import { useForm } from "react-hook-form";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createEditCabin } from "../../services/apiCabins";
-import toast from "react-hot-toast";
+
 import FormRow from "../../ui/FormRow";
 import { useCreateCabin } from "./useCreateCabin";
 import { useEditCabin } from "./useEditCabin";
@@ -30,7 +26,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
       editingCabin(
         { newCabinData: { ...data, image: image }, id: editId },
         {
-          onSuccess: (data) => {
+          onSuccess: () => {
             reset(), onCloseModal?.();
           },
         }

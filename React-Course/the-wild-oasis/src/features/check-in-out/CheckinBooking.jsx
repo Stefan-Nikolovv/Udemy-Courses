@@ -19,7 +19,6 @@ import Modal from "../../ui/Modal";
 import { HiTrash } from "react-icons/hi2";
 import Menus from "../../ui/Menus";
 import ConfirmDelete from "../../ui/ConfirmDelete";
-import { deleteBooking } from "../../services/apiBookings";
 import { useDeleteBookings } from "../bookings/useDeleteBooking";
 
 const Box = styled.div`
