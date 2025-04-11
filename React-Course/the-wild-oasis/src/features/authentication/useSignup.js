@@ -9,7 +9,7 @@ export function useSignup() {
     mutationFn: signAPI,
     onSuccess: (data) => {
       toast.success(`Welcome ${data.user.email} to the oasis`);
-      navigate("/");
+      navigate("/", { replace: true });
     },
     onError: (err) => {
       console.error(err);
