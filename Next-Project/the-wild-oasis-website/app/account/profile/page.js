@@ -1,4 +1,5 @@
-import SelectCountry from "@/app/_components/SelectCountry";
+import Image from "next/image";
+import SelectCountry from "../../_componets/SelectCountry";
 
 export const metadata = {
   title: "Update Profile",
@@ -40,10 +41,11 @@ export default function Page() {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <label htmlFor="nationality">Where are you from?</label>
-            <img
+            <Image
               src={countryFlag}
+              fill
               alt="Country flag"
-              className="h-5 rounded-sm"
+              className="object-cover h-5 rounded-sm"
             />
           </div>
 
