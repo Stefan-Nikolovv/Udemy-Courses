@@ -1,0 +1,52 @@
+
+🚀 Basic Kubernetes Management
+------------------------------
+kubectl get pods                         # List all pods
+kubectl get services                     # List all services
+kubectl get deployments                  # List all deployments
+kubectl get nodes                        # List all nodes in the cluster
+
+kubectl describe pod POD_NAME             # Detailed info about a pod
+kubectl describe service SERVICE_NAME     # Detailed info about a service
+kubectl describe deployment DEPLOYMENT_NAME  # Info about a deployment
+
+kubectl logs POD_NAME                     # View logs of a pod
+kubectl logs POD_NAME -c CONTAINER_NAME   # View logs of a specific container in a pod
+
+kubectl exec -it POD_NAME -- bash          # Access a pod's container terminal
+
+📦 Deployments and Services
+----------------------------
+kubectl create deployment DEPLOYMENT_NAME --image=IMAGE_NAME  # Create a deployment
+kubectl expose deployment DEPLOYMENT_NAME --type=LoadBalancer --port=80  # Expose a deployment as a service
+
+kubectl apply -f filename.yaml             # Apply changes from a YAML file
+kubectl delete -f filename.yaml            # Delete resources from a YAML file
+kubectl delete deployment DEPLOYMENT_NAME  # Delete a deployment
+kubectl delete service SERVICE_NAME        # Delete a service
+
+🔄 Updating and Scaling
+-----------------------
+kubectl set image deployment/DEPLOYMENT_NAME CONTAINER_NAME=NEW_IMAGE  # Update container image
+kubectl scale deployment DEPLOYMENT_NAME --replicas=3                  # Scale deployment to 3 replicas
+
+🌎 Namespace Management
+------------------------
+kubectl get namespaces                     # List all namespaces
+kubectl create namespace NAMESPACE_NAME    # Create a new namespace
+kubectl delete namespace NAMESPACE_NAME    # Delete a namespace
+kubectl config set-context --current --namespace=NAMESPACE_NAME  # Switch to a namespace
+
+⚡️ Useful Combos
+----------------
+kubectl rollout status deployment/DEPLOYMENT_NAME   # Watch rollout status
+kubectl rollout undo deployment/DEPLOYMENT_NAME     # Rollback a deployment
+kubectl port-forward POD_NAME LOCAL_PORT:REMOTE_PORT # Forward a pod's port to local machine
+kubectl top pods                                     # Show CPU/memory usage of pods
+
+🛠 Bonus: Minikube Commands (for local dev)
+-------------------------------------------
+minikube start                         # Start a local Kubernetes cluster
+minikube status                        # Status of the local cluster
+minikube dashboard                     # Open the Kubernetes dashboard UI
+minikube stop                          # Stop the local cluster

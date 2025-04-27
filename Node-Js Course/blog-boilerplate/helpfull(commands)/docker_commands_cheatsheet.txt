@@ -1,0 +1,52 @@
+
+🚀 Basic Container Management
+------------------------------
+docker run IMAGE_NAME                # Run a container from an image
+docker run --name mycontainer IMAGE_NAME  # Run and give your container a custom name
+docker start CONTAINER_NAME           # Start an existing stopped container
+docker stop CONTAINER_NAME            # Stop a running container
+docker restart CONTAINER_NAME         # Restart a container
+docker rm CONTAINER_NAME              # Remove a stopped container
+docker ps                             # Show running containers
+docker ps -a                          # Show all containers (running and stopped)
+
+📦 Image Management
+-------------------
+docker images                         # List all images
+docker rmi IMAGE_NAME                 # Remove an image
+docker build -t myimage:tag .          # Build an image from Dockerfile
+docker pull IMAGE_NAME                # Download image from Docker Hub
+docker push IMAGE_NAME                # Upload image to Docker Hub
+
+🔧 Working with Containers
+---------------------------
+docker exec -it CONTAINER_NAME bash    # Enter into a running container
+docker logs CONTAINER_NAME             # See container logs
+docker inspect CONTAINER_NAME          # Inspect container details
+docker cp CONTAINER_NAME:/path/in/container /local/path  # Copy from container
+docker cp /local/path CONTAINER_NAME:/path/in/container  # Copy to container
+
+🌎 Networking and Ports
+-----------------------
+docker run -p 8080:80 IMAGE_NAME       # Map container port 80 to local 8080
+docker network ls                      # List docker networks
+docker network create mynetwork        # Create a custom network
+docker network connect mynetwork CONTAINER_NAME  # Connect container to a network
+
+📂 Volumes (Saving Data)
+------------------------
+docker volume ls                       # List volumes
+docker volume create myvolume          # Create a volume
+docker run -v myvolume:/path/in/container IMAGE_NAME  # Mount a volume
+
+⚡️ Super Useful Combos
+----------------------
+docker run --rm IMAGE_NAME              # Remove container after it exits
+docker run -it IMAGE_NAME bash          # Run and open a bash terminal
+docker system prune -a                  # Clean up unused containers, images, volumes
+
+🛠 Bonus: Docker Compose
+------------------------
+docker-compose up                      # Start all services
+docker-compose up -d                   # Start all services in background
+docker-compose down                    # Stop all services
