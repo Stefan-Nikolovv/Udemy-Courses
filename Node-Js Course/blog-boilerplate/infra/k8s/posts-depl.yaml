@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
         - name: posts
-          image: upbeat_wilson/posts:0.0.1
+          image: upbeat_wilson/posts:latest
