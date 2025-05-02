@@ -10,6 +10,8 @@ COPY . .
 
 EXPOSE 80
 
-VOLUME [ "/app/feedback" ]
+#Anoniums volume to resolve problem with node_modules
+# that should look likes 
+# VOLUME [ "/app/node_modules" ]
 
 CMD [ "node", "server.js" ]
