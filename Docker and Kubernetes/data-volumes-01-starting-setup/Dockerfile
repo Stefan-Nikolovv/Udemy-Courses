@@ -14,4 +14,4 @@ EXPOSE 80
 # that should look likes 
 # VOLUME [ "/app/node_modules" ]
 
-CMD [ "node", "server.js" ]
+CMD [ "npm", "start" ]
