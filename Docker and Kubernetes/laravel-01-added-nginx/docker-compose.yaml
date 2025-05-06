@@ -6,7 +6,11 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./src:/var/www/html
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - php
+      - mysql
   php:
     build:
       context: ./dockerfiles
@@ -19,7 +23,7 @@ services:
       - ./env/mysql.env
   composer:
     build:
-      context: ./dockerfile
+      context: ./dockerfiles
       dockerfile: composer.dockerfile
     volumes:
       - ./src:/var/www/html
