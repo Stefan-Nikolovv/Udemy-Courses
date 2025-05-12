@@ -15,3 +15,11 @@ spec:
       containers:
         - name: story
           image: stefannikolov4344/kub-data-demo
+          volumeMounts:
+            - mountPath: /app/story
+              name: story-volume
+      volumes:
+        - name: story-volume
+          hostPath:
+            path: /data
+            type: DirectoryOrCreate
