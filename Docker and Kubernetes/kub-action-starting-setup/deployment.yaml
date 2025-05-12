@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: secound-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: secound-app
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: secound-app
+        tier: backend
+    spec:
+      containers:
+        - name: secound-node
+          image: stefannikolov4344/kub-first-app
