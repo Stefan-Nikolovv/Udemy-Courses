@@ -5,6 +5,8 @@ const tours = JSON.parse(
 );
 const app = express();
 
+app.use(express.json());
+
 app.get("/api/v1/tours", (req, res) => {
   res.status(200).json({
     status: "success",
@@ -13,6 +15,10 @@ app.get("/api/v1/tours", (req, res) => {
       tours,
     },
   });
+});
+
+app.post("/api/v1/tours", (req, res) => {
+  req.params;
 });
 
 const port = 3000;
