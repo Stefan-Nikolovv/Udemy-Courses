@@ -7,7 +7,10 @@ const app = express();
 
 app.use(express.json());
 
-app.get("/api/v1/tours", (req, res) => {
+const tourRouter = express.Router();
+const userRouter = express.Router();
+
+tourRouter.get("/", (req, res) => {
   res.status(200).json({
     status: "success",
     results: tours.length,
@@ -17,7 +20,7 @@ app.get("/api/v1/tours", (req, res) => {
   });
 });
 
-app.get("/api/v1/tours/:id", (req, res) => {
+tourRouter.get("/:id", (req, res) => {
   const id = req.params?.id * 1;
   const tour = tours.find((x) => x.id === id);
   res.status(200).json({
@@ -28,7 +31,7 @@ app.get("/api/v1/tours/:id", (req, res) => {
   });
 });
 
-app.post("/api/v1/tours", (req, res) => {
+tourRouter.post("/", (req, res) => {
   const newId = tours[tours.length - 1].id + 1;
   const newTour = Object.assign({ id: newId }, req.body);
 
@@ -41,7 +44,8 @@ app.post("/api/v1/tours", (req, res) => {
     }
   );
 });
-
+app.use("/api/v/tours", tourRouter);
+app.use("/api/v/users", userRouter);
 const port = 3000;
 
 app.listen(port, () => {
