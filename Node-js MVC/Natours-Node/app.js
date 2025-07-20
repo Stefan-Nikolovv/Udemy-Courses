@@ -41,10 +41,7 @@ app.post("/api/v1/tours", (req, res) => {
     }
   );
 });
-app.patch("/api/v1/tours/:id", (req, res) => {
-  const id = req.params?.id * 1;
-  const tour = tours.find((x) => x.id === id);
-});
+
 const port = 3000;
 
 app.listen(port, () => {
